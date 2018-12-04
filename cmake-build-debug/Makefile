@@ -111,44 +111,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named rapidjson
+# Target rules for targets named testrapidjson
 
 # Build rule for target.
-rapidjson: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 rapidjson
-.PHONY : rapidjson
+testrapidjson: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 testrapidjson
+.PHONY : testrapidjson
 
 # fast build rule for target.
-rapidjson/fast:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/build
-.PHONY : rapidjson/fast
+testrapidjson/fast:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/build
+.PHONY : testrapidjson/fast
 
-rapidjson.o: rapidjson.cpp.o
+testrapidjson.o: testrapidjson.cpp.o
 
-.PHONY : rapidjson.o
+.PHONY : testrapidjson.o
 
 # target to build an object file
-rapidjson.cpp.o:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/rapidjson.cpp.o
-.PHONY : rapidjson.cpp.o
+testrapidjson.cpp.o:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/testrapidjson.cpp.o
+.PHONY : testrapidjson.cpp.o
 
-rapidjson.i: rapidjson.cpp.i
+testrapidjson.i: testrapidjson.cpp.i
 
-.PHONY : rapidjson.i
+.PHONY : testrapidjson.i
 
 # target to preprocess a source file
-rapidjson.cpp.i:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/rapidjson.cpp.i
-.PHONY : rapidjson.cpp.i
+testrapidjson.cpp.i:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/testrapidjson.cpp.i
+.PHONY : testrapidjson.cpp.i
 
-rapidjson.s: rapidjson.cpp.s
+testrapidjson.s: testrapidjson.cpp.s
 
-.PHONY : rapidjson.s
+.PHONY : testrapidjson.s
 
 # target to generate assembly for a file
-rapidjson.cpp.s:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/rapidjson.cpp.s
-.PHONY : rapidjson.cpp.s
+testrapidjson.cpp.s:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/testrapidjson.cpp.s
+.PHONY : testrapidjson.cpp.s
 
 # Help Target
 help:
@@ -158,10 +158,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... rapidjson"
-	@echo "... rapidjson.o"
-	@echo "... rapidjson.i"
-	@echo "... rapidjson.s"
+	@echo "... testrapidjson"
+	@echo "... testrapidjson.o"
+	@echo "... testrapidjson.i"
+	@echo "... testrapidjson.s"
 .PHONY : help
 
 

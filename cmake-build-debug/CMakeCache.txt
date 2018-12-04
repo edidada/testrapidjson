@@ -144,7 +144,7 @@ CMAKE_OBJCOPY:FILEPATH=/usr/bin/objcopy
 CMAKE_OBJDUMP:FILEPATH=/usr/bin/objdump
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=rapidjson
+CMAKE_PROJECT_NAME:STATIC=testrapidjson
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -216,6 +216,12 @@ rapidjson_BINARY_DIR:STATIC=/root/CLionProjects/testrapidjson/cmake-build-debug
 
 //Value Computed by CMake
 rapidjson_SOURCE_DIR:STATIC=/root/CLionProjects/testrapidjson
+
+//Value Computed by CMake
+testrapidjson_BINARY_DIR:STATIC=/root/CLionProjects/testrapidjson/cmake-build-debug
+
+//Value Computed by CMake
+testrapidjson_SOURCE_DIR:STATIC=/root/CLionProjects/testrapidjson
 
 
 ########################

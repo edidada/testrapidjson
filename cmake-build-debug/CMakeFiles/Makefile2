@@ -65,39 +65,39 @@ CMAKE_SOURCE_DIR = /root/CLionProjects/testrapidjson
 CMAKE_BINARY_DIR = /root/CLionProjects/testrapidjson/cmake-build-debug
 
 #=============================================================================
-# Target rules for target CMakeFiles/rapidjson.dir
+# Target rules for target CMakeFiles/testrapidjson.dir
 
 # All Build rule for target.
-CMakeFiles/rapidjson.dir/all:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/depend
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/CLionProjects/testrapidjson/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target rapidjson"
-.PHONY : CMakeFiles/rapidjson.dir/all
+CMakeFiles/testrapidjson.dir/all:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/depend
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/root/CLionProjects/testrapidjson/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target testrapidjson"
+.PHONY : CMakeFiles/testrapidjson.dir/all
 
 # Include target in all.
-all: CMakeFiles/rapidjson.dir/all
+all: CMakeFiles/testrapidjson.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/rapidjson.dir/rule: cmake_check_build_system
+CMakeFiles/testrapidjson.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/CLionProjects/testrapidjson/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/rapidjson.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/testrapidjson.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /root/CLionProjects/testrapidjson/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/rapidjson.dir/rule
+.PHONY : CMakeFiles/testrapidjson.dir/rule
 
 # Convenience name for target.
-rapidjson: CMakeFiles/rapidjson.dir/rule
+testrapidjson: CMakeFiles/testrapidjson.dir/rule
 
-.PHONY : rapidjson
-
-# clean rule for target.
-CMakeFiles/rapidjson.dir/clean:
-	$(MAKE) -f CMakeFiles/rapidjson.dir/build.make CMakeFiles/rapidjson.dir/clean
-.PHONY : CMakeFiles/rapidjson.dir/clean
+.PHONY : testrapidjson
 
 # clean rule for target.
-clean: CMakeFiles/rapidjson.dir/clean
+CMakeFiles/testrapidjson.dir/clean:
+	$(MAKE) -f CMakeFiles/testrapidjson.dir/build.make CMakeFiles/testrapidjson.dir/clean
+.PHONY : CMakeFiles/testrapidjson.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/testrapidjson.dir/clean
 
 .PHONY : clean
 

@@ -1,0 +1,10 @@
+/.idea/
+*.ipr
+*.iml
+*.iws
+target/
+*.jar
+!.mvn/wrapper/*
+.settings/
+.project
+.classpath

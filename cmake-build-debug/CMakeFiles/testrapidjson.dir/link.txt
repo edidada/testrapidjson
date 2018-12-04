@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/testrapidjson.dir/testrapidjson.cpp.o  -o testrapidjson 

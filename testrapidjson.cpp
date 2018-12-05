@@ -1,7 +1,6 @@
 #include <iostream>
 #include <map>
 
-// 请自己下载开源的rapidjson
 #include "rapidjson/prettywriter.h"
 #include "rapidjson/rapidjson.h"
 #include "rapidjson/document.h"
@@ -183,6 +182,15 @@ string formJsonWithArray(const map<string, int> &mInt, const map<string, string>
     return buffer.GetString();
 }
 
+class NameBean{
+
+public:
+    string name;
+    int id;
+    string toString(){
+        return "name:"+name+" id:"+to_string(id);
+    }
+};
 
 void test1()
 {
@@ -257,10 +265,67 @@ void test2()
 }
 
 
+
+void parseJson(){
+    // 1. 把 JSON 解析至 DOM。
+    const char* json = "{\"project\":\"rapidjson\",\"stars\":10}";
+    Document d;
+    d.Parse(json);
+
+    // 2. 利用 DOM 作出修改。
+    Value& s = d["stars"];
+    s.SetInt(s.GetInt() + 1);
+
+    // Output stars :11
+    std::cout <<"stars :"<<s.GetInt() << std::endl;
+    s = d["project"];
+
+    // Output project :rapidjson
+    std::cout <<"project :"<<s.GetString() << std::endl;
+
+    // 3. 把 DOM 转换（stringify）成 JSON。
+    StringBuffer buffer;
+    Writer<StringBuffer> writer(buffer);
+    d.Accept(writer);
+
+    // Output {"project":"rapidjson","stars":11}
+    std::cout << buffer.GetString() << std::endl;
+}
+
+void parseJsonList(){
+    const char * str="{\"code\": 0,\"data\": [{\"id\": 1,\"path\": \"pa\"}, {\"id\": 2,\"path\": \"pa\"}]}";
+    Document d;
+    d.Parse(str);
+    //data
+    // 2. 利用 DOM 作出修改。
+    Value& ques = d["data"];
+    if (ques.IsArray()){
+        vector<NameBean> nameBeanVector;
+        for(size_t i = 0; i < ques.Size(); ++i){
+            Value & v = ques[i];
+            NameBean nameBean;
+            if(v.HasMember("path") && v["path"].IsString()){
+                nameBean.name=v["path"].GetString();
+            }
+            if(v.HasMember("id") && v["id"].IsInt()){
+                nameBean.id=v["id"].GetInt();
+            }
+            nameBeanVector.push_back(nameBean);
+        }
+        for (int i = 0; i<nameBeanVector.size(); i++)
+        {
+            cout<<nameBeanVector[i].toString()<< " ";
+        }
+        cout<<endl;
+    }
+}
+
+
 int main(int argc, char *argv[])
 {
-	test1();
-	test2();
+//    test1();
+//    test2();
 
-	return 0;
+    parseJsonList();
+    return 0;
 }

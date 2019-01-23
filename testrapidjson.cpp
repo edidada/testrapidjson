@@ -192,7 +192,7 @@ public:
     }
 };
 
-void test1()
+void makejson()
 {
 	map<string, int> mInt;
 	map<string, string> mString;
@@ -215,8 +215,31 @@ void test1()
 	cout << s << endl;
 }
 
+void makejsons()
+{
+    map<string, int> mInt;
+    map<string, string> mString;
+    mInt["code"] = 0;
+    mString["msg"] = "ok";
 
-void test2()
+    string strChild1 = "account";
+    map<string, uint64_t> mChildInt1;
+    map<string, string> mChildString1;
+    mChildInt1["id"] = 1;
+    mChildString1["username"] = "edidada";
+
+    string strChild2 = "loginresult";
+    map<string, uint64_t> mChildInt2;
+    map<string, string> mChildString2;
+    mChildInt2["code"] = 730;
+    mChildString2["msg"] = "loginsuccess";
+
+    string s = formJson(mInt, mString, strChild1, mChildInt1, mChildString1,strChild2, mChildInt2, mChildString2);
+    cout << s << endl;
+}
+
+
+void makeJsonArray()
 {
 	map<string, int> mInt;
 	map<string, string> mString;
@@ -323,9 +346,11 @@ void parseJsonList(){
 
 int main(int argc, char *argv[])
 {
-//    test1();
-//    test2();
+    makejson();
+    makejsons();
+    makeJsonArray();
 
+    parseJson();
     parseJsonList();
     return 0;
 }

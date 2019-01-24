@@ -20,9 +20,17 @@ using namespace rapidjson;
 // 注意int和uint64_t
 map<string, uint64_t> g_mChildInt;
 map<string, string> g_mChildString;
-string formJson(const map<string, int> &mInt, const map<string, string> &mString,
-		        const string &strChild="", const map<string, uint64_t> &mChildInt=g_mChildInt, const map<string, string> &mChildString=g_mChildString,
-		        const string &strChild2="", const map<string, uint64_t> &mChildInt2=g_mChildInt, const map<string, string> &mChildString2=g_mChildString)
+
+string formJson(const map<string,
+        int> &mInt,
+        const map<string, string> &mString,
+		const string &strChild="",
+		const map<string, uint64_t> &mChildInt=g_mChildInt,
+		const map<string, string> &mChildString=g_mChildString,
+		const string &strChild2="",
+		const map<string, uint64_t> &mChildInt2=g_mChildInt,
+		const map<string, string> &mChildString2=g_mChildString
+
 {
 	Document document;
 
@@ -98,9 +106,7 @@ string formJson(const map<string, int> &mInt, const map<string, string> &mString
 
 string formJsonWithArray(const map<string, int> &mInt, const map<string, string> &mString,
 				const string &strChild1, const map<string, uint64_t> &mChildInt, const map<string, string> &mChildString,
-		        string &strChild2, vector<map<string, uint64_t> >&mVecChildInt, vector<map<string, string> >&mVecChildString)
-
-{
+		        string &strChild2, vector<map<string, uint64_t> >&mVecChildInt, vector<map<string, string> >&mVecChildString){
 	Document document;
 
     Document::AllocatorType& allocator = document.GetAllocator();

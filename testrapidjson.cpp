@@ -21,8 +21,7 @@ using namespace rapidjson;
 map<string, uint64_t> g_mChildInt;
 map<string, string> g_mChildString;
 
-string formJson(const map<string,
-        int> &mInt,
+string formJson(const map<string,int> &mInt,
         const map<string, string> &mString,
 		const string &strChild="",
 		const map<string, uint64_t> &mChildInt=g_mChildInt,

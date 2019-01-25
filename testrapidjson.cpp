@@ -14,6 +14,7 @@ using namespace std;
 using rapidjson::Document;
 using rapidjson::StringBuffer;
 using rapidjson::Writer;
+
 using namespace rapidjson;
 
 
@@ -28,9 +29,7 @@ string formJson(const map<string,int> &mInt,
 		const map<string, string> &mChildString=g_mChildString,
 		const string &strChild2="",
 		const map<string, uint64_t> &mChildInt2=g_mChildInt,
-		const map<string, string> &mChildString2=g_mChildString
-
-{
+		const map<string, string> &mChildString2=g_mChildString) {
 	Document document;
 
     Document::AllocatorType& allocator = document.GetAllocator();
@@ -121,16 +120,14 @@ string formJsonWithArray(const map<string, int> &mInt, const map<string, string>
     	root.AddMember(key, it->second, allocator);
 	}
 
-	for(map<string, string>::const_iterator it = mString.begin(); it != mString.end(); ++it)
-	{
+	for(map<string, string>::const_iterator it = mString.begin(); it != mString.end(); ++it) {
 		key.SetString(it->first.c_str(), allocator);
    		value.SetString(it->second.c_str(), allocator);
     	root.AddMember(key, value, allocator);
 	}
 
 	// 孩子级别
-	if(!strChild1.empty())
-	{
+	if(!strChild1.empty()) {
 		Value child(kObjectType);
 		for(map<string, uint64_t>::const_iterator it = mChildInt.begin(); it != mChildInt.end(); ++it)
 		{
@@ -152,8 +149,7 @@ string formJsonWithArray(const map<string, int> &mInt, const map<string, string>
 	// 孩子级别
 	unsigned int uiSize1 = mVecChildInt.size();
 	unsigned int uiSize2 = mVecChildString.size();
-	if(!strChild2.empty() && uiSize1 == uiSize2)
-	{
+	if(!strChild2.empty() && uiSize1 == uiSize2) {
 		Value array(rapidjson::kArrayType);
 		for(unsigned int i = 0; i < uiSize1; ++i)
 		{
@@ -162,7 +158,6 @@ string formJsonWithArray(const map<string, int> &mInt, const map<string, string>
 			{
 				key.SetString(it->first.c_str(), allocator);
 		    	child.AddMember(key, it->second, allocator);
-
 			}
 
 			for(map<string, string>::iterator it = mVecChildString[i].begin(); it != mVecChildString[i].end(); ++it)
@@ -189,55 +184,54 @@ string formJsonWithArray(const map<string, int> &mInt, const map<string, string>
 
 class NameBean{
 
-public:
-    string name;
-    int id;
-    string toString(){
-        return "name:"+name+" id:"+to_string(id);
-    }
+    public:
+        string name;
+        int id;
+        string toString(){
+            return "name:"+name+" id:"+to_string(id);
+        }
+
 };
 
-void makejson()
-{
+void makejson() {
 	map<string, int> mInt;
 	map<string, string> mString;
-	mInt["code"] = 0;
-	mString["msg"] = "ok";
+	mInt["code"]=0;
+	mString["msg"]="ok";
 
-	string strChild1 = "xxx";
+	string strChild1="xxx";
 	map<string, uint64_t> mChildInt1;
 	map<string, string> mChildString1;
-	mChildInt1["key"] = 729;
-	mChildString1["kk"] = "vv";
+	mChildInt1["key"]=729;
+	mChildString1["kk"]="vv";
 
-	string strChild2 = "yyy";
+	string strChild2="yyy";
 	map<string, uint64_t> mChildInt2;
 	map<string, string> mChildString2;
-	mChildInt2["key"] = 730;
-	mChildString2["kkk"] = "vvv";
+	mChildInt2["key"]=730;
+	mChildString2["kkk"]="vvv";
 
 	string s = formJson(mInt, mString, strChild1, mChildInt1, mChildString1,strChild2, mChildInt2, mChildString2);
 	cout << s << endl;
 }
 
-void makejsons()
-{
+void makejsons() {
     map<string, int> mInt;
     map<string, string> mString;
-    mInt["code"] = 0;
-    mString["msg"] = "ok";
+    mInt["code"]=0;
+    mString["msg"]="ok";
 
-    string strChild1 = "account";
+    string strChild1="account";
     map<string, uint64_t> mChildInt1;
     map<string, string> mChildString1;
-    mChildInt1["id"] = 1;
-    mChildString1["username"] = "edidada";
+    mChildInt1["id"]=1;
+    mChildString1["username"]="edidada";
 
-    string strChild2 = "loginresult";
+    string strChild2="loginresult";
     map<string, uint64_t> mChildInt2;
     map<string, string> mChildString2;
-    mChildInt2["code"] = 730;
-    mChildString2["msg"] = "loginsuccess";
+    mChildInt2["code"]=730;
+    mChildString2["msg"]="loginsuccess";
 
     string s = formJson(mInt, mString, strChild1, mChildInt1, mChildString1,strChild2, mChildInt2, mChildString2);
     cout << s << endl;
@@ -248,41 +242,39 @@ void makeJsonArray()
 {
 	map<string, int> mInt;
 	map<string, string> mString;
-	mInt["code"] = 0;
-	mString["msg"] = "ok";
+	mInt["code"]=0;
+	mString["msg"]="ok";
 
-	string strChild1 = "xxx";
+	string strChild1="xxx";
 	map<string, uint64_t> mChildInt;
 	map<string, string> mChildString;
-	mChildString["kk"] = "vv";
-	mChildInt["key"] = 729;
+	mChildString["kk"]="vv";
+	mChildInt["key"]=729;
 
 
-	string strChild2 = "data";
+	string strChild2="data";
 	vector<map<string, uint64_t> >mVecChildInt;
 	vector<map<string, string> >mVecChildString;
 
 	{
-
-		map<string, uint64_t> mChildInt;
+        map<string, uint64_t> mChildInt;
 		map<string, string> mChildString;
 
-		mChildInt["id"] = 1;
-		mChildString["path"] = "pa";
-		mChildString["sha"] = "sh";
+		mChildInt["id"]=1;
+		mChildString["path"]="pa";
+		mChildString["sha"]="sh";
 
 		mVecChildInt.push_back(mChildInt);
 		mVecChildString.push_back(mChildString);
 	}
 
 	{
-
 		map<string, uint64_t> mChildInt;
 		map<string, string> mChildString;
 
-		mChildInt["id"] = 2;
-		mChildString["path"] = "pa";
-		mChildString["sha"] = "sh";
+		mChildInt["id"]=2;
+		mChildString["path"]="pa";
+		mChildString["sha"]="sh";
 
 		mVecChildInt.push_back(mChildInt);
 		mVecChildString.push_back(mChildString);

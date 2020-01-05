@@ -1,5 +1,8 @@
 # testrapidjson
 
+[rapidjson mainpage](https://rapidjson.org/)
+
+[github mainpage](https://github.com/Tencent/rapidjson/)
 
 [csdn reference](https://blog.csdn.net/stpeace/article/details/78149631)
 

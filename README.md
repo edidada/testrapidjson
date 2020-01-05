@@ -7,6 +7,8 @@
 [csdn reference](https://blog.csdn.net/stpeace/article/details/78149631)
 
 
+`vcpkg install rapidjson`
+
 {
 	\"code\": 0,
 	\"data\": [{

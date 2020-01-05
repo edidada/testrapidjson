@@ -262,7 +262,7 @@ void makeJsonArray()
 
 		mChildInt["id"]=1;
 		mChildString["path"]="pa";
-		mChildString["sha"]="sh";
+		mChildString["sha123"]="sh22222222222222";
 
 		mVecChildInt.push_back(mChildInt);
 		mVecChildString.push_back(mChildString);
@@ -273,8 +273,8 @@ void makeJsonArray()
 		map<string, string> mChildString;
 
 		mChildInt["id"]=2;
-		mChildString["path"]="pa";
-		mChildString["sha"]="sh";
+		mChildString["path"]="pa3213211";
+		mChildString["sha12312323"]="sh1111111111111111";
 
 		mVecChildInt.push_back(mChildInt);
 		mVecChildString.push_back(mChildString);

@@ -20,13 +20,8 @@ install:
   - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
   # don't forget to switch back to the main build directory once you are done
   - cd ${TRAVIS_BUILD_DIR}
-  - sudo apt-get install libboost-dev
-  - sudo apt-get install libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev
-  - sudo apt-get install libboost-test-dev libboost-program-options-dev libboost-system-dev
-  - sudo apt-get install libc-ares-dev libcurl4-openssl-dev
-  - sudo apt-get install zlib1g-dev libgd-dev libgtest-dev
-  - sudo apt-get install libcrypto++*
-  - sudo apt-get install mysql-client libmysqlclient-dev
+  - sudo apt-get update
+  - sudo apt-get install rapidjson-dev
 
 before_script:
   # create a build folder for the out-of-source build

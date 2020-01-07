@@ -1,0 +1,47 @@
+language: cpp
+sudo: required
+dist: trusty
+compiler:
+  - gcc
+  - clang
+os:
+  - linux
+install:
+  - DEPS_DIR="${TRAVIS_BUILD_DIR}/deps"
+  - mkdir ${DEPS_DIR} && cd ${DEPS_DIR}
+  - travis_retry wget --no-check-certificate https://cmake.org/files/v3.12/cmake-3.12.0-Linux-x86_64.tar.gz
+  # extract the binaries; the output here is quite lengthy,
+  # so we swallow it to not clutter up the travis console
+  - tar -xvf cmake-3.12.0-Linux-x86_64.tar.gz > /dev/null
+  - mv cmake-3.12.0-Linux-x86_64 cmake-install
+  # add both the top-level directory and the bin directory from the archive
+  # to the system PATH. By adding it to the front of the path we hide the
+  # preinstalled CMake with our own.
+  - PATH=${DEPS_DIR}/cmake-install:${DEPS_DIR}/cmake-install/bin:$PATH
+  # don't forget to switch back to the main build directory once you are done
+  - cd ${TRAVIS_BUILD_DIR}
+  - sudo apt-get install libboost-dev
+  - sudo apt-get install libprotobuf-dev protobuf-compiler libprotoc-dev libgoogle-perftools-dev
+  - sudo apt-get install libboost-test-dev libboost-program-options-dev libboost-system-dev
+  - sudo apt-get install libc-ares-dev libcurl4-openssl-dev
+  - sudo apt-get install zlib1g-dev libgd-dev libgtest-dev
+  - sudo apt-get install libcrypto++*
+  - sudo apt-get install mysql-client libmysqlclient-dev
+
+before_script:
+  # create a build folder for the out-of-source build
+  - mkdir build
+  # switch to build directory
+  - cd build
+  # run cmake; here we assume that the project's
+  # top-level CMakeLists.txt is located at '..'
+  - cmake ..
+
+env:
+  - BUILD_TYPE=debug
+  - BUILD_TYPE=release
+script:
+  # once CMake has done its job we just build using make as usual
+  - sudo make
+  # if the project uses ctest we can run the tests like this
+  # - make test

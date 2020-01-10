@@ -3,7 +3,7 @@ sudo: required
 dist: xenial
 compiler:
   - gcc
-  - clang
+#  - clang
 os:
   - linux
 install:

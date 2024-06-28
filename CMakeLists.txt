@@ -3,5 +3,6 @@ project(testrapidjson)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(testrapidjson testrapidjson.cpp)
+add_executable(testrapidjson src/testrapidjson.cpp)
+add_executable(jsonarray src/jsonarray.cpp)
 

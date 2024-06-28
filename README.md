@@ -64,3 +64,7 @@ Value
 GenericValue(Type type)
 
 ```
+
+## map对象直接搞成json字符串，java可以
+
+https://stackoverflow.com/questions/55587812/c-stdvector-to-json-array-with-rapidjson

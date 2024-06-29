@@ -1,0 +1,39 @@
+language: cpp
+sudo: required
+dist: xenial
+compiler:
+  - gcc
+#  - clang
+os:
+  - linux
+install:
+  - cd ${TRAVIS_BUILD_DIR}
+  # - sudo apt-get update
+  # - sudo apt-get install rapidjson-dev
+  - git clone https://github.com/Tencent/rapidjson.git
+  - cd rapidjson
+  - git checkout v1.1.0
+  - git submodule update
+  - mkdir -p build
+  - cd build
+  - cmake ..
+  - make
+  - sudo make install
+  - cd ${TRAVIS_BUILD_DIR}
+before_script:
+  # create a build folder for the out-of-source build
+  - mkdir build
+  # switch to build directory
+  - cd build
+  # run cmake; here we assume that the project's
+  # top-level CMakeLists.txt is located at '..'
+  - cmake ..
+
+env:
+  - BUILD_TYPE=debug
+  - BUILD_TYPE=release
+script:
+  # once CMake has done its job we just build using make as usual
+  - sudo make
+  # if the project uses ctest we can run the tests like this
+  # - make test

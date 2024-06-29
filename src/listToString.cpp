@@ -37,6 +37,9 @@ int main() {
             {{"key3", "value3"}, {"key4", "value4"}}
     };
 
+    std::string code = "200";
+    std::string message = "success";
+
     std::string jsonStr = serializeDataToJSON(data);
     std::cout << jsonStr << std::endl;
 

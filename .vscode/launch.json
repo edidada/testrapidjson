@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(lldb) Attach jsonarray",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/jsonarray",
+            "MIMode": "lldb",
+            "preLaunchTask": "cmake_build"
+        },
+        {
+            "name": "CMake Launch testrapidjson",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/testrapidjson",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "cmake_build"
+        }
+    ]
+}

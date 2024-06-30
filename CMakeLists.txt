@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 project(testrapidjson)
 
 set(CMAKE_CXX_STANDARD 11)
+include_directories(/usr/local/Cellar/rapidjson/1.1.0/include)
 
 add_executable(testrapidjson src/testrapidjson.cpp)
 add_executable(jsonarray src/jsonarray.cpp)

@@ -54,6 +54,6 @@ int main() {
 
     std::cout << strbuf.GetString();
 
-makeMapJson();
+    makeMapJson();
     return 0;
 }

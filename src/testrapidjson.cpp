@@ -22,8 +22,8 @@ using namespace rapidjson;
 map<string, uint64_t> g_mChildInt;
 map<string, string> g_mChildString;
 
-string formJson(const map<string,int> &mInt,
-        const map<string, string> &mString,
+string formJson(const map<string,int> &intMap,
+        const map<string, string> &stringMap,
 		const string &strChild="",
 		const map<string, uint64_t> &mChildInt=g_mChildInt,
 		const map<string, string> &mChildString=g_mChildString,
@@ -39,13 +39,13 @@ string formJson(const map<string,int> &mInt,
     Value value(kStringType);
 
 	// 当前级别
-	for(map<string, int>::const_iterator it = mInt.begin(); it != mInt.end(); ++it)
+	for(map<string, int>::const_iterator it = intMap.begin(); it != intMap.end(); ++it)
 	{
 		key.SetString(it->first.c_str(), allocator);
     	root.AddMember(key, it->second, allocator);
 	}
 
-	for(map<string, string>::const_iterator it = mString.begin(); it != mString.end(); ++it)
+	for(map<string, string>::const_iterator it = stringMap.begin(); it != stringMap.end(); ++it)
 	{
 		key.SetString(it->first.c_str(), allocator);
    		value.SetString(it->second.c_str(), allocator);
